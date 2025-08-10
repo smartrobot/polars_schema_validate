@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cargo:*)",
+      "Bash(rm:*)",
+      "Bash(mv:*)",
+      "Bash(RUST_BACKTRACE=1 cargo test test_chrono_schema_generation -- --nocapture)",
+      "Bash(RUST_BACKTRACE=1 cargo test test_chrono_types_valid -- --nocapture)"
+    ],
+    "deny": []
+  }
+}
