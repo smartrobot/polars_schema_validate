@@ -10,7 +10,7 @@ license = "MIT"
 repository = "https://github.com/yourusername/polars_schema_validate"
 
 [workspace.dependencies]
-polars = { version = "0.44", features = ["lazy"] }
+polars = { version = ">=0.40, <0.50", features = ["lazy"] }
 anyhow = "1.0"
 syn = { version = "2.0", features = ["full", "derive"] }
 quote = "1.0"

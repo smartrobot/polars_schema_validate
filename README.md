@@ -17,7 +17,7 @@ Add this to your `Cargo.toml`:
 ```toml
 [dependencies]
 polars_schema_validate = "0.1.0"
-polars = "0.44"
+polars = ">=0.40"
 ```
 
 ## Quick Start
@@ -239,6 +239,31 @@ cargo build --release
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Supported Polars Versions
+
+This library supports Polars versions `>=0.40, <0.50`. Since Polars has breaking releases approximately every 6 months, we test against multiple versions to ensure compatibility:
+
+⚠️ **Note on Polars 0.50.0**: There is a compilation bug in polars 0.50.0 (TZ_AWARE_RE error) that prevents it from compiling. We will add support for 0.50.1+ when the fix is released.
+
+- ✅ Polars 0.40.x
+- ✅ Polars 0.41.x  
+- ✅ Polars 0.42.x
+- ✅ Polars 0.43.x
+- ✅ Polars 0.44.x
+- ✅ Polars 0.45.x
+- ✅ Polars 0.46.x
+- ✅ Polars 0.47.x
+- ✅ Polars 0.48.x
+- ✅ Polars 0.49.x
+
+When using `cargo add polars_schema_validate`, Cargo will automatically select a compatible Polars version based on your project's existing dependencies.
+
+### Version Compatibility Notes
+
+- **API Stability**: We use stable Polars APIs (`DataFrame`, `Series`, `DataType`) that have remained consistent across supported versions
+- **Breaking Changes**: If Polars introduces breaking changes in a major release, we will update our compatibility range accordingly
+- **Testing**: Our CI runs tests against multiple Polars versions to catch compatibility issues early
 
 ## Contributing
 

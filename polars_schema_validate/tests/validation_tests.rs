@@ -181,30 +181,30 @@ fn test_different_numeric_types() {
         val_f64: f64,
     }
 
-    let val_i8_col = Column::new("val_i8".into(), [1i8, 2i8]);
-    let val_i16_col = Column::new("val_i16".into(), [1i16, 2i16]);
-    let val_i32_col = Column::new("val_i32".into(), [1i32, 2i32]);
-    let val_i64_col = Column::new("val_i64".into(), [1i64, 2i64]);
+    let val_i8_col = Series::new("val_i8".into(), [1i8, 2i8]);
+    let val_i16_col = Series::new("val_i16".into(), [1i16, 2i16]);
+    let val_i32_col = Series::new("val_i32".into(), [1i32, 2i32]);
+    let val_i64_col = Series::new("val_i64".into(), [1i64, 2i64]);
     // Skip u8 and u16 for now as they're not directly supported by polars Series creation
     // We can test them by converting larger integers
-    let val_u8_col = Column::new("val_u8".into(), [1i32, 2i32]);
-    let val_u16_col = Column::new("val_u16".into(), [1i32, 2i32]);
-    let val_u32_col = Column::new("val_u32".into(), [1u32, 2u32]);
-    let val_u64_col = Column::new("val_u64".into(), [1u64, 2u64]);
-    let val_f32_col = Column::new("val_f32".into(), [1.0f32, 2.0f32]);
-    let val_f64_col = Column::new("val_f64".into(), [1.0f64, 2.0f64]);
+    let val_u8_col = Series::new("val_u8".into(), [1i32, 2i32]);
+    let val_u16_col = Series::new("val_u16".into(), [1i32, 2i32]);
+    let val_u32_col = Series::new("val_u32".into(), [1u32, 2u32]);
+    let val_u64_col = Series::new("val_u64".into(), [1u64, 2u64]);
+    let val_f32_col = Series::new("val_f32".into(), [1.0f32, 2.0f32]);
+    let val_f64_col = Series::new("val_f64".into(), [1.0f64, 2.0f64]);
     
     let df = DataFrame::new(vec![
-        val_i8_col,
-        val_i16_col,
-        val_i32_col,
-        val_i64_col,
-        val_u8_col,
-        val_u16_col,
-        val_u32_col,
-        val_u64_col,
-        val_f32_col,
-        val_f64_col,
+        val_i8_col.into(),
+        val_i16_col.into(),
+        val_i32_col.into(),
+        val_i64_col.into(),
+        val_u8_col.into(),
+        val_u16_col.into(),
+        val_u32_col.into(),
+        val_u64_col.into(),
+        val_f32_col.into(),
+        val_f64_col.into(),
     ]).unwrap();
 
     assert!(NumericTypes::validate(&df).is_ok());
